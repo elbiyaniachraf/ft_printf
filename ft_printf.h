@@ -6,7 +6,7 @@
 /*   By: ael-biya <ael-biya@student.1337.ma>       #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/11/13 11:21:11 by ael-biya         #+#    #+#              */
-/*   Updated: 2026/11/13 12:08:08 by ael-biya        ###   ########.fr        */
+/*   Updated: 2026/11/15 21:52:19 by ael-biya        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 # include <unistd.h>
 
 int	ft_printf(const char *format, ...);
-int	print_char(int c);
-int	print_str(char *s);
-int	print_nbr(int n);
-int	print_base(unsigned long n, char *base);
-int	print_ptr(void *ptr);
+int	ft_printchar(int c);
+int	ft_printstr(char *str);
+int	ft_printnbr(long nbr);
+int	ft_printbase(unsigned long nbr, char *base);
+int	ft_printptr(void *ptr);
 
 #endif
