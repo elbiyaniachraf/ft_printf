@@ -6,7 +6,7 @@
 /*   By: ael-biya <ael-biya@student.1337.ma>       #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/11/13 11:23:44 by ael-biya         #+#    #+#              */
-/*   Updated: 2026/11/15 21:52:16 by ael-biya        ###   ########.fr        */
+/*   Updated: 2026/11/15 22:48:41 by ael-biya        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,22 @@ static int	print_format(char c, va_list *args)
 	return (-1);
 }
 
+static int	handle_format(const char *format, int *i, va_list *args)
+{
+	int	result;
+
+	if (format[*i] == '%' && format[*i + 1])
+	{
+		(*i)++;
+		result = print_format(format[*i], args);
+	}
+	else if (format[*i] == '%')
+		return (-1);
+	else
+		result = ft_printchar(format[*i]);
+	return (result);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
@@ -47,17 +63,12 @@ int	ft_printf(const char *format, ...)
 	count = 0;
 	while (format[i])
 	{
-		if (format[i] == '%' && format[i + 1])
-		{
-			i++;
-			result = print_format(format[i], &args);
-		}
-		else if (format[i] == '%')
-			result = -1;
-		else
-			result = ft_printchar(format[i]);
+		result = handle_format(format, &i, &args);
 		if (result == -1)
-			return (va_end(args), -1);
+		{
+			va_end(args);
+			return (-1);
+		}
 		count += result;
 		i++;
 	}

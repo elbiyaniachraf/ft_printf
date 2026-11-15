@@ -6,7 +6,7 @@
 /*   By: ael-biya <ael-biya@student.1337.ma>       #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/11/15 21:31:14 by ael-biya         #+#    #+#              */
-/*   Updated: 2026/11/15 21:52:13 by ael-biya        ###   ########.fr        */
+/*   Updated: 2026/11/15 22:48:29 by ael-biya        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int	ft_printchar(int c)
 {
-	if (write(1, &c, 1) == -1)
+	unsigned char	ch;
+
+	ch = (unsigned char) c;
+	if (write(1, &ch, 1) == -1)
 		return (-1);
 	return (1);
 }

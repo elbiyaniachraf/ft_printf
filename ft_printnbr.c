@@ -6,7 +6,7 @@
 /*   By: ael-biya <ael-biya@student.1337.ma>       #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
 /*   Created: 2026/11/15 21:49:32 by ael-biya         #+#    #+#              */
-/*   Updated: 2026/11/15 21:52:21 by ael-biya        ###   ########.fr        */
+/*   Updated: 2026/11/15 22:49:25 by ael-biya        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	ft_printnbr(long nbr)
 {
 	int	count;
+	int	result;
 
 	count = 0;
 	if (nbr < 0)
@@ -24,6 +25,8 @@ int	ft_printnbr(long nbr)
 		count++;
 		nbr = -nbr;
 	}
-	count += ft_printbase((unsigned long) nbr, "0123456789");
-	return (count);
+	result = ft_printbase((unsigned long) nbr, "0123456789");
+	if (result == -1)
+		return (-1);
+	return (count + result);
 }
