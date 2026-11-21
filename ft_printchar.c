@@ -3,10 +3,10 @@
 /*                                                       :::      ::::::::    */
 /*   ft_printchar.c                                    :+:      :+:    :+:    */
 /*                                                   +:+ +:+         +:+      */
-/*   By: ael-biya <ael-biya@student.1337.ma>       #+#  +:+       +#+         */
+/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/11/15 21:31:14 by ael-biya         #+#    #+#              */
-/*   Updated: 2026/11/15 22:48:29 by ael-biya        ###   ########.fr        */
+/*   Created: 2026/11/19 13:57:23 by username         #+#    #+#              */
+/*   Updated: 2026/11/21 12:39:29 by username        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,5 @@ int	ft_printchar(int c)
 	unsigned char	ch;
 
 	ch = (unsigned char) c;
-	if (write(1, &ch, 1) == -1)
-		return (-1);
-	return (1);
+	return (write(1, &ch, 1));
 }

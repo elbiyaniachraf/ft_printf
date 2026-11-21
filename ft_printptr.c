@@ -5,25 +5,27 @@
 /*                                                   +:+ +:+         +:+      */
 /*   By: ael-biya <ael-biya@student.1337.ma>       #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/11/15 21:49:56 by ael-biya         #+#    #+#              */
-/*   Updated: 2026/11/15 22:49:35 by ael-biya        ###   ########.fr        */
+/*   Created: 2026/11/19 16:49:58 by ael-biya         #+#    #+#              */
+/*   Updated: 2026/11/19 17:11:07 by ael-biya        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printptr(void *ptr)
+int	ft_printptr(void *p)
 {
-	int	count;
-	int	result;
+	unsigned long	addr;
+	int				i;
+	int				tmp;
 
-	if (!ptr)
+	addr = (unsigned long) p;
+	if (addr == 0)
 		return (ft_printstr("(nil)"));
-	count = ft_printstr("0x");
-	if (count == -1)
+	i = ft_printstr("0x");
+	if (i == -1)
 		return (-1);
-	result = ft_printbase((unsigned long) ptr, "0123456789abcdef");
-	if (result == -1)
+	tmp = ft_printhex(addr, "0123456789abcdef");
+	if (tmp == -1)
 		return (-1);
-	return (count + result);
+	return (i + tmp);
 }

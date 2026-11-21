@@ -5,23 +5,23 @@
 /*                                                   +:+ +:+         +:+      */
 /*   By: ael-biya <ael-biya@student.1337.ma>       #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/11/15 21:46:28 by ael-biya         #+#    #+#              */
-/*   Updated: 2026/11/15 22:49:43 by ael-biya        ###   ########.fr        */
+/*   Created: 2026/11/19 13:58:38 by ael-biya         #+#    #+#              */
+/*   Updated: 2026/11/20 02:04:31 by ael-biya        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printstr(char *str)
+int	ft_printstr(const char *s)
 {
 	int	i;
 
-	if (!str)
-		str = "(null)";
 	i = 0;
-	while (str[i])
+	if (!s)
+		s = "(null)";
+	while (s[i])
 	{
-		if (ft_printchar(str[i]) == -1)
+		if (ft_printchar(s[i]) == -1)
 			return (-1);
 		i++;
 	}

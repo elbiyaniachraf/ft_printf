@@ -5,28 +5,34 @@
 /*                                                   +:+ +:+         +:+      */
 /*   By: ael-biya <ael-biya@student.1337.ma>       #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/11/15 21:49:32 by ael-biya         #+#    #+#              */
-/*   Updated: 2026/11/15 22:49:25 by ael-biya        ###   ########.fr        */
+/*   Created: 2026/11/19 14:05:31 by ael-biya         #+#    #+#              */
+/*   Updated: 2026/11/19 14:42:58 by ael-biya        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printnbr(long nbr)
+int	ft_printnbr(long n)
 {
-	int	count;
-	int	result;
+	int	i;
+	int	tmp;
 
-	count = 0;
-	if (nbr < 0)
+	i = 0;
+	if (n < 0)
 	{
 		if (ft_printchar('-') == -1)
 			return (-1);
-		count++;
-		nbr = -nbr;
+		i++;
+		n = -n;
 	}
-	result = ft_printbase((unsigned long) nbr, "0123456789");
-	if (result == -1)
+	if (n > 9)
+	{
+		tmp = ft_printnbr(n / 10);
+		if (tmp == -1)
+			return (-1);
+		i += tmp;
+	}
+	if (ft_printchar(n % 10 + '0') == -1)
 		return (-1);
-	return (count + result);
+	return (i + 1);
 }

@@ -3,24 +3,25 @@
 /*                                                       :::      ::::::::    */
 /*   ft_printf.h                                       :+:      :+:    :+:    */
 /*                                                   +:+ +:+         +:+      */
-/*   By: ael-biya <ael-biya@student.1337.ma>       #+#  +:+       +#+         */
+/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/11/13 11:21:11 by ael-biya         #+#    #+#              */
-/*   Updated: 2026/11/15 22:49:14 by ael-biya        ###   ########.fr        */
+/*   Created: 2026/11/19 14:41:20 by username         #+#    #+#              */
+/*   Updated: 2026/11/21 13:57:20 by username        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdarg.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 int	ft_printf(const char *format, ...);
 int	ft_printchar(int c);
-int	ft_printstr(char *str);
-int	ft_printnbr(long nbr);
-int	ft_printbase(unsigned long nbr, char *base);
-int	ft_printptr(void *ptr);
+int	ft_printstr(const char *s);
+int	ft_printnbr(long n);
+int	ft_printunbr(unsigned long n);
+int	ft_printhex(unsigned long n, const char *base);
+int	ft_printptr(void *p);
 
 #endif
