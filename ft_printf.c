@@ -3,10 +3,10 @@
 /*                                                       :::      ::::::::    */
 /*   ft_printf.c                                       :+:      :+:    :+:    */
 /*                                                   +:+ +:+         +:+      */
-/*   By: username <username@student.42tokyo.jp>    #+#  +:+       +#+         */
+/*   By: ael-biya <ael-biya@student.1337.ma>       #+#  +:+       +#+         */
 /*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/11/20 01:44:01 by username         #+#    #+#              */
-/*   Updated: 2026/11/21 12:38:26 by username        ###   ########.fr        */
+/*   Created: 2026/11/20 01:44:01 by ael-biya         #+#    #+#              */
+/*   Updated: 2026/11/25 19:36:48 by ael-biya        ###   ########.fr        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,16 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	i = 0;
 	count = 0;
-	while (format[i])
+	while (count != -1 && format[i])
 	{
-		if (format[i] == '%' && format[i + 1] == '\0')
-			return (va_end(args), -1);
 		if (format[i] == '%')
 			tmp = ft_format(format[++i], &args);
 		else
 			tmp = ft_printchar(format[i]);
 		if (tmp == -1)
-			return (va_end(args), -1);
-		count += tmp;
+			count = -1;
+		else
+			count += tmp;
 		i++;
 	}
 	va_end(args);
