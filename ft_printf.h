@@ -17,7 +17,7 @@
 # include <stdarg.h>
 
 int	ft_printf(const char *format, ...);
-int	ft_printchar(int c);
+int	ft_printchar(char c);
 int	ft_printstr(const char *s);
 int	ft_printnbr(long n);
 int	ft_printunbr(unsigned long n);
